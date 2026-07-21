@@ -17,28 +17,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "19"
+          node-version: "24"
           cache: npm
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
+      - name: Run lint
+        run: npm run lint
 
       - name: react build
         run: npm run build
-
-  linting:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "19"
-          cashe: npm
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: react lint
-        run: npm run lint
